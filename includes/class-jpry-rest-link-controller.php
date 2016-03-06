@@ -94,7 +94,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 		$return = array();
 
 		foreach ( $links as $link_object ) {
-			$data = $this->prepare_item_for_response( $link_object, $request );
+			$data     = $this->prepare_item_for_response( $link_object, $request );
 			$return[] = $this->prepare_response_for_collection( $data );
 		}
 
@@ -132,7 +132,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 	 */
 	public function create_item( $request ) {
 		if ( ! function_exists( 'wp_insert_link' ) ) {
-			wds_dynamics_require_once_file( ABSPATH . 'wp-admin/includes/bookmark.php' );
+			jpry_require_once_file( ABSPATH . 'wp-admin/includes/bookmark.php' );
 		}
 
 		if ( ! empty( $request['id'] ) ) {
@@ -146,16 +146,6 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 		$link = $this->prepare_item_for_database( $request );
 		if ( is_wp_error( $link ) ) {
 			return $link;
-		}
-
-		// If the URL already exists, then pass this over to the update_item() method.
-		if ( ! empty( $request['url'] ) ) {
-			$id = $this->find_link_by_url( $link['link_url'] );
-			if ( $id ) {
-				$request->set_param( 'id', (int) $id );
-
-				return $this->update_item( $request );
-			}
 		}
 
 		$link_id = wp_insert_link( $link, true );
@@ -199,7 +189,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 	 */
 	public function update_item( $request ) {
 		if ( ! function_exists( 'wp_update_link' ) ) {
-			wds_dynamics_require_once_file( ABSPATH . 'wp-admin/includes/bookmark.php' );
+			jpry_require_once_file( ABSPATH . 'wp-admin/includes/bookmark.php' );
 		}
 
 		$id = (int) $request['id'];
@@ -247,26 +237,11 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 	 */
 	public function delete_item( $request ) {
 		if ( ! function_exists( 'wp_delete_link' ) ) {
-			wds_dynamics_require_once_file( ABSPATH . 'wp-admin/includes/bookmark.php' );
+			jpry_require_once_file( ABSPATH . 'wp-admin/includes/bookmark.php' );
 		}
 
 		$id    = (int) $request['id'];
 		$force = (bool) $request['force'];
-
-		if ( ! $id ) {
-			$url = apply_filters( 'rest_prepare_link_url', esc_url_raw( $request['url'] ), $request );
-			$id = $this->find_link_by_url( $url );
-			if ( $id ) {
-				$request->set_param( 'id', (int) $id );
-			} else {
-				return new WP_Error(
-					'rest_link_invalid',
-					__( 'The link you are trying to delete cannot be found.', 'wds-dynamics-mu' ),
-					array( 'status' => 400 )
-				);
-			}
-		}
-
 		$link  = get_bookmark( $id );
 		$check = $this->check_link_valid( $id );
 		if ( is_wp_error( $check ) ) {
