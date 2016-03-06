@@ -705,6 +705,13 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 			}
 		}
 
+		/**
+		 * Filter the array of rels to attach to a certain link.
+		 *
+		 * @param array $rels The array of rels that will be attached to the link.
+		 */
+		$rels = apply_filters( 'sanitize_rest_link_rels', $rels );
+
 		return implode( ' ', $rels );
 	}
 
