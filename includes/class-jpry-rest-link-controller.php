@@ -218,7 +218,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 			return $link_id;
 		}
 
-		/** This action is documented in class-wds-rest-link-controller.php */
+		/** This action is documented in class-jpry-rest-link-controller.php */
 		do_action( 'rest_insert_link', $link, $request, false );
 
 		return $this->get_item( array(
