@@ -422,7 +422,9 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 			/**
 			 * Filter the data for a field before it is inserted into the database.
 			 *
-			 * The dynamic part of this filter, $field, refers to the field name from the schema.
+			 * This filter assumes that the returned data has been properly escaped for insertion
+			 * into the database, so be careful with return values. The dynamic part of this filter,
+			 * $field, refers to the field name from the schema.
 			 *
 			 * @param mixed           $field_data The data for the field.
 			 * @param WP_REST_Request $request    Full details about the request.
