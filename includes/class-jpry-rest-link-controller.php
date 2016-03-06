@@ -42,7 +42,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 			array(
 				'methods'             => WP_REST_Server::CREATABLE,
 				'callback'            => array( $this, 'create_item' ),
-				'permission_callback' => array( $this, 'create_item_permissions_check' ),
+				'permission_callback' => array( $this, 'manage_links_check' ),
 				'args'                => $this->get_endpoint_args_for_item_schema( WP_REST_Server::CREATABLE ),
 			),
 			'schema' => array( $this, 'get_public_item_schema' ),
@@ -63,13 +63,13 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 			array(
 				'methods'              => WP_REST_Server::EDITABLE,
 				'callback'             => array( $this, 'update_item' ),
-				'permissions_callback' => array( $this, 'update_item_permissions_check' ),
+				'permissions_callback' => array( $this, 'manage_links_check' ),
 				'args'                 => $this->get_endpoint_args_for_item_schema( WP_REST_Server::EDITABLE ),
 			),
 			array(
 				'methods'             => WP_REST_Server::DELETABLE,
 				'callback'            => array( $this, 'delete_item' ),
-				'permission_callback' => array( $this, 'delete_item_permissions_check' ),
+				'permission_callback' => array( $this, 'manage_links_check' ),
 				'args'                => array(
 					'force' => array(
 						'default' => false,
@@ -342,36 +342,14 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 	}
 
 	/**
-	 * Check if a given request has access to create items.
+	 * Determine if the current user can manage links.
 	 *
-	 * @param WP_REST_Request $request Full data about the request.
+	 * @param WP_REST_Request $request
 	 *
-	 * @return WP_Error|bool
+	 * @return bool
 	 */
-	public function create_item_permissions_check( $request ) {
+	public function manage_links_check( $request ) {
 		return current_user_can( 'manage_links' );
-	}
-
-	/**
-	 * Check if a given request has access to update a specific item.
-	 *
-	 * @param WP_REST_Request $request Full data about the request.
-	 *
-	 * @return WP_Error|bool
-	 */
-	public function update_item_permissions_check( $request ) {
-		return current_user_can( 'manage_links' );
-	}
-
-	/**
-	 * Check if a given request has access to delete a specific item.
-	 *
-	 * @param WP_REST_Request $request Full data about the request.
-	 *
-	 * @return WP_Error|bool
-	 */
-	public function delete_item_permissions_check( $request ) {
-		return current_user_can( 'manange_links' );
 	}
 
 	/**
