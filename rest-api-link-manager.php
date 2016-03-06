@@ -2,7 +2,7 @@
 /**
  * Plugin Name: REST API Link Manager
  * Plugin URI:  https://github.com/PrysPlugins/rest-api-link-manager
- * Description: Add endpoints for managaing links to the REST API.
+ * Description: Add endpoints for managing links to the REST API.
  * Version:     1.0.0
  * Author:      Jeremy Pry
  * Author URI:  http://jeremypry.com/
