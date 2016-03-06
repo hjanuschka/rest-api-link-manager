@@ -7,6 +7,8 @@
  * Author:      Jeremy Pry
  * Author URI:  http://jeremypry.com/
  * License:     GPL2
+ * Text Domain: jpry-rest-api-link-manager
+ * Domain Path: /languages
  */
 
 // Prevent direct access to this file
