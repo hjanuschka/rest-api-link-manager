@@ -21,6 +21,8 @@ This plugin makes the following endpoints available:
 
 For more information about the REST API as a whole, refer to the [REST API plugin](https://wordpress.org/plugins/rest-api/).
 
+**Note:** This plugin **requires** the [REST API plugin](https://wordpress.org/plugins/rest-api/).
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/rest-api-link-manager` directory, or install the plugin through the WordPress plugins screen directly.
