@@ -660,7 +660,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 	 */
 	public function check_can_manage_links( $request ) {
 		if ( 'edit' === $request['context'] ) {
-			return current_user_can( 'manage_links' );
+			return $this->manage_links_check( $request );
 		}
 
 		return true;
