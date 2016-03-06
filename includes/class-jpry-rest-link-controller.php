@@ -638,12 +638,12 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 	/**
 	 * Check whether a given link is publicly visible.
 	 *
-	 * @param int $link The link ID to check.
+	 * @param int $link_id The link ID to check.
 	 *
 	 * @return bool Whether the link is publicly visible.
 	 */
-	public function check_link_visible( $link ) {
-		$visible = get_bookmark_field( 'link_visible', $link, 'raw' );
+	public function check_link_visible( $link_id ) {
+		$visible = get_bookmark_field( 'link_visible', $link_id, 'raw' );
 
 		return is_string( $visible ) && 'Y' === strtoupper( $visible );
 	}
