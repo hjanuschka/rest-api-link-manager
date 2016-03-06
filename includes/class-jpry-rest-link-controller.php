@@ -17,7 +17,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 	 *
 	 * @var string
 	 */
-	protected $namespace = 'wds/v1';
+	protected $namespace = 'wp/v2';
 
 	/**
 	 * Register the routes for the objects of the controller.
