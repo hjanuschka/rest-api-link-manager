@@ -39,9 +39,9 @@ gulp.task('wp-pot', function () {
 		.pipe(plumber({errorHandler: handleErrors}))
 		.pipe(sort())
 		.pipe(wpPot({
-			domain   : 'jpry-rest-api-link-manager',
-			destFile : 'jpry-rest-api-link-manager.pot',
-			package  : 'jpry-rest-api-link-manager',
+			domain   : 'rest-api-link-manager',
+			destFile : 'rest-api-link-manager.pot',
+			package  : 'rest-api-link-manager',
 			bugReport: 'https://github.com/PrysPlugins/rest-api-link-manager/issues'
 		}))
 		.pipe(gulp.dest('languages/'));

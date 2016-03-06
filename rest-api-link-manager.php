@@ -7,7 +7,7 @@
  * Author:      Jeremy Pry
  * Author URI:  http://jeremypry.com/
  * License:     GPL2
- * Text Domain: jpry-rest-api-link-manager
+ * Text Domain: rest-api-link-manager
  * Domain Path: /languages
  */
 
@@ -37,7 +37,7 @@ add_action( 'init', 'jpry_rest_link_manager_translations' );
  * @since 1.0.0
  */
 function jpry_rest_link_manager_translations() {
-	load_plugin_textdomain( 'jpry-rest-api-link-manager', false, dirname( __FILE__ ) . '/languages' );
+	load_plugin_textdomain( 'rest-api-link-manager', false, dirname( __FILE__ ) . '/languages' );
 }
 
 /**
