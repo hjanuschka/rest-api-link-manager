@@ -29,6 +29,17 @@ function jpry_register_rest_link_routes() {
 	$link_controller->register_routes();
 }
 
+// Hook up the translations
+add_action( 'init', 'jpry_rest_link_manager_translations' );
+/**
+ * Load our text domain translations.
+ *
+ * @since 1.0.0
+ */
+function jpry_rest_link_manager_translations() {
+	load_plugin_textdomain( 'jpry-rest-api-link-manager', false, dirname( __FILE__ ) . '/languages' );
+}
+
 /**
  * Require a file.
  *
