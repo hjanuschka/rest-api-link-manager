@@ -140,7 +140,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 		if ( ! empty( $request['id'] ) ) {
 			return new WP_Error(
 				'rest_link_exists',
-				__( 'Cannot create existing link.', 'wds-dynamics-mu' ),
+				__( 'Cannot create existing link.', 'jpry-rest-api-link-manager' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -263,7 +263,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 			if ( isset( $link->link_visible ) && 'N' === $link->link_visible ) {
 				return new WP_Error(
 					'rest_already_deleted',
-					__( 'The link has already been deleted.', 'wds-dynamics-mu' ),
+					__( 'The link has already been deleted.', 'jpry-rest-api-link-manager' ),
 					array( 'status' => 410 )
 				);
 			}
@@ -278,7 +278,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 		if ( ! $result ) {
 			return new WP_Error(
 				'rest_cannot_delete',
-				__( 'The link cannot be deleted.', 'wds-dynamics-mu' ),
+				__( 'The link cannot be deleted.', 'jpry-rest-api-link-manager' ),
 				array( 'status' => 500 )
 			);
 		}
@@ -313,7 +313,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 		if ( ! $this->check_can_manage_links( $request ) ) {
 			return new WP_Error(
 				'rest_forbidden_context',
-				__( 'Sorry, you are not allowed to edit links.', 'wds-dynamics-mu' ),
+				__( 'Sorry, you are not allowed to edit links.', 'jpry-rest-api-link-manager' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -330,7 +330,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 	 */
 	public function get_item_permissions_check( $request ) {
 		if ( ! $this->check_can_manage_links( $request ) ) {
-			return new WP_Error( 'rest_forbidden_context', __( 'Sorry, you are not allowed to edit links.', 'wds-dynamics-mu' ) );
+			return new WP_Error( 'rest_forbidden_context', __( 'Sorry, you are not allowed to edit links.', 'jpry-rest-api-link-manager' ) );
 		}
 
 		$link = get_bookmark( $request['id'] );
@@ -825,7 +825,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 			if ( ! $author ) {
 				return new WP_Error(
 					'rest_invalid_author',
-					__( 'Invalid author ID.', 'wds-dynamics-mu' ),
+					__( 'Invalid author ID.', 'jpry-rest-api-link-manager' ),
 					array( 'status' => 400 )
 				);
 			}
@@ -891,7 +891,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 		if ( null === $link || empty( $link ) ) {
 			return new WP_Error(
 				'rest_link_invalid_id',
-				__( 'Invalid link ID.', 'wds-dynamics-mu' ),
+				__( 'Invalid link ID.', 'jpry-rest-api-link-manager' ),
 				array( 'status' => 404 )
 			);
 		}
@@ -900,7 +900,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 		if ( isset( $link->link_visible ) && 'Y' !== $link->link_visible && ! current_user_can( 'manage_links' ) ) {
 			return new WP_Error(
 				'rest_link_invalid_id',
-				__( 'Invalid link ID.', 'wds-dynamics-mu' ),
+				__( 'Invalid link ID.', 'jpry-rest-api-link-manager' ),
 				array( 'status' => 404 )
 			);
 		}
