@@ -1,7 +1,9 @@
 <?php
 
 /**
- *
+ * Class for handling Links in the REST API.
+ * 
+ * @since 1.0.0
  */
 class JPry_REST_Link_Controller extends WP_REST_Controller {
 
