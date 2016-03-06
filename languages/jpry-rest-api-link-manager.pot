@@ -1,0 +1,40 @@
+# Copyright (C) 2016 jpry-rest-api-link-manager
+# This file is distributed under the same license as the jpry-rest-api-link-manager package.
+msgid ""
+msgstr ""
+"Project-Id-Version: jpry-rest-api-link-manager\n"
+"Report-Msgid-Bugs-To: https://github.com/PrysPlugins/rest-api-link-manager/issues\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
+
+#: includes/class-jpry-rest-link-controller.php:143
+msgid "Cannot create existing link."
+msgstr ""
+
+#: includes/class-jpry-rest-link-controller.php:266
+msgid "The link has already been deleted."
+msgstr ""
+
+#: includes/class-jpry-rest-link-controller.php:281
+msgid "The link cannot be deleted."
+msgstr ""
+
+#: includes/class-jpry-rest-link-controller.php:316, includes/class-jpry-rest-link-controller.php:333
+msgid "Sorry, you are not allowed to edit links."
+msgstr ""
+
+#: includes/class-jpry-rest-link-controller.php:837
+msgid "Invalid author ID."
+msgstr ""
+
+#: includes/class-jpry-rest-link-controller.php:903, includes/class-jpry-rest-link-controller.php:912
+msgid "Invalid link ID."
+msgstr ""
