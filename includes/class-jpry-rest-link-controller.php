@@ -330,7 +330,11 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 	 */
 	public function get_item_permissions_check( $request ) {
 		if ( ! $this->check_can_manage_links( $request ) ) {
-			return new WP_Error( 'rest_forbidden_context', __( 'Sorry, you are not allowed to edit links.', 'rest-api-link-manager' ) );
+			return new WP_Error(
+				'rest_forbidden_context',
+				__( 'Sorry, you are not allowed to edit links.', 'rest-api-link-manager' ),
+				array( 'status' => 403 )
+			);
 		}
 
 		$link = get_bookmark( $request['id'] );
