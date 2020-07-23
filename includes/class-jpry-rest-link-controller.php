@@ -63,7 +63,7 @@ class JPry_REST_Link_Controller extends WP_REST_Controller {
 			array(
 				'methods'              => WP_REST_Server::EDITABLE,
 				'callback'             => array( $this, 'update_item' ),
-				'permissions_callback' => array( $this, 'manage_links_check' ),
+				'permission_callback' => array( $this, 'manage_links_check' ),
 				'args'                 => $this->get_endpoint_args_for_item_schema( WP_REST_Server::EDITABLE ),
 			),
 			array(
